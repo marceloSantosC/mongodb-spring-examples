@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "e7ed59f6-273f-4e57-a0a6-f614560eca3d",
+		"name": "Mongo DB examples",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13329297"
+	},
+	"item": [
+		{
+			"name": "POST /examples",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": null,\r\n    \"name\": \"test example\",\r\n    \"description\": \"test desc\",\r\n    \"createdAt\": \"2022-10-01\",\r\n    \"nestedExample\": {\r\n        \"id\": null,\r\n        \"description\": \"test desc nested\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/examples",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"examples"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /examples",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/examples",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"examples"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /examples/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/examples/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"examples",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "642cd5f88356f13d4dac2d93"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

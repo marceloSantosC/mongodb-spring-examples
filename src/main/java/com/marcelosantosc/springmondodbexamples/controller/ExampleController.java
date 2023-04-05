@@ -6,6 +6,7 @@ import com.marcelosantosc.springmondodbexamples.repository.ExampleRepository;
 import com.marcelosantosc.springmondodbexamples.repository.NestedExampleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -45,6 +46,7 @@ public class ExampleController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @Transactional // Transação sincrona do mongoDb
     public void createExample(@RequestBody ExampleModel exampleModel) {
         exampleModel.setId(null);
 

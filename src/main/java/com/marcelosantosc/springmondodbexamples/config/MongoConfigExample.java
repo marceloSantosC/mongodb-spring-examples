@@ -8,7 +8,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.mongodb.MongoDatabaseFactory;
+import org.springframework.data.mongodb.MongoTransactionManager;
 import org.springframework.data.mongodb.config.AbstractMongoClientConfiguration;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -33,4 +36,12 @@ public class MongoConfigExample extends AbstractMongoClientConfiguration {
     public MongoClient mongoClient() {
         return MongoClients.create(uri);
     }
+
+
+    // Bean necessário para que mongoDB tenha suporte a transações com a anotação @Transaction
+    @Bean
+    public MongoTransactionManager transactionManager(MongoDatabaseFactory dbFactory) {
+        return new MongoTransactionManager(dbFactory);
+    }
+
 }
